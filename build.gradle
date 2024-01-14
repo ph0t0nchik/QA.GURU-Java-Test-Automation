@@ -1,11 +1,14 @@
+//устанавливает язык проекта
 plugins {
     id 'java-library'
 }
 
+//хранилище всех библиотек для java
 repositories {
     mavenCentral()
 }
 
+//какие бибилиотеки используем
 dependencies {
     testImplementation(
             'org.junit.jupiter:junit-jupiter:5.10.1',
@@ -15,6 +18,7 @@ dependencies {
 
 }
 
+//перекодирование всего кода тестов в формат UTF-8
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
