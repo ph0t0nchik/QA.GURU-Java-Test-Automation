@@ -37,6 +37,7 @@ public class HwOpenGithubAndTrainingDragDrop {
         $("#column-a").dragAndDropTo("#column-b");
         $("#column-a").shouldHave(text("A"));
         $("#column-b").shouldHave(text("B"));
+
     }
 
 }
