@@ -2,6 +2,7 @@ package lessons.les7_pageObjects;
 
 import com.codeborne.selenide.SelenideElement;
 import lessons.pages.RegistrationPageLes7;
+import lessons.pages.components.CalendarComponentLes7;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.appear;
@@ -10,7 +11,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationWithPageObjectsTests extends TestBase {
-    //расширили класс HwFromLess3
+    //расширили класс RegistrationWithPageObjectsTests, этот класс наследуется от TestBase. Сначала выполнится код в
+    //а потом в RegistrationWithPageObjectsTests
     RegistrationPageLes7 registrationPage = new RegistrationPageLes7();
     @Test
     void successTest(){
@@ -19,18 +21,10 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setFirstName("Alex")
                 .setLastName("Maximov")
                 .setUserEmail("maximov@mail.ru")
-                .setUGender("Other");
+                .setUGender("Other")
+                .setUserNumber("1111111111")
+                .setBirthDay("30", "2", "2020");
 
-        $("#genterWrapper").$(byText("Male")).click();
-        $("#userNumber").setValue("1111111111");
-
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption(2);
-        $("#dateOfBirth-wrapper").$(".react-datepicker__year-select").selectOptionByValue("2020");
-        // <div class="react-datepicker__day--027 react-datepicker__day--outside-month">27</div>
-        // <div class="react-datepicker__day--027">27</div>
-        $("#dateOfBirth-wrapper").$(".react-datepicker__day--027:not(.react-datepicker__day--outside-month)").click();
-//        $x("//*[@class='react-datepicker__day--027'][not(contains(@class, 'react-datepicker__day--outside-month'))]").click();
 
         $("#subjectsInput").setValue("Maths").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
