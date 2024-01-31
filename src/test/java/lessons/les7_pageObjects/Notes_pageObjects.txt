@@ -1,1 +1,40 @@
 PageObjects - селекторы к объекту, и методы для этого объекта
+
+Какую проблему решает pageObjects:
+
+1) Вынести часто повторяющиеся локаторы в отдельную переменную.
+
+    String loginInputLocator = "#firstName"
+    Так делать не стоит - плохая практика
+
+    SelenideElement firstNameInput = $("#firstName")
+    Так намного лучше.
+    Так хорошо делать, если разработчик часто меняет название селекторов, а мы не хотим искать каждую строку в тестах,
+    чтобы подстроится под изменение.
+
+2) Нечитаемость теста со сплошными селекторами, непонятные шаги теста, что происходит на каждом шаге
+
+    Сделаи мы вот так значит:
+            registrationPage.setFirstName();
+            registrationPage.setLastName();
+            registrationPage.setUserEmail();
+
+    Но минус в том, что мы вбиваем какое-то одно конкретное значение.
+
+    В Page делаем такую такой класс:
+    public RegistrationPageLes7 setFirstName(String value){
+            firstNameInput.setValue(value);
+            return this;
+        }
+
+    Это делается, чтобы оптимизировать код в основном файле с логикой теста.
+    Получается класс вызывает сам себя, и не надо каждый раз писать registrationPage.
+
+    По итогу получаем:
+    registrationPage.openPage()
+                    .setFirstName("Alex")
+                    .setLastName("Maximov")
+                    .setUserEmail("maximov@mail.ru")
+                    .setUGender("Other");
+
+    Далее это можно копировать и использовать в других тестах с другими значениями
