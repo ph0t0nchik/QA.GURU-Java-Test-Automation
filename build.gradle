@@ -27,6 +27,7 @@ repositories {
 dependencies {
     testImplementation(
             'org.junit.jupiter:junit-jupiter:5.10.1',
+            'com.github.javafaker:javafaker:1.0.2',
             'com.codeborne:selenide:6.19.1',
             'org.slf4j:slf4j-simple:2.0.7',
             'io.qameta.allure:allure-selenide:2.19.0'
@@ -43,4 +44,10 @@ tasks.withType(JavaCompile) {
 test{
 //    systemProperties "chromeoptions.prefs", "intl.accept_languages=en"  //запуск браузера на англ языке
     useJUnitPlatform()
+}
+
+task simple_test_less12(type: Test) {
+    useJUnitPlatform{
+        includeTags("simple")
+    }
 }
