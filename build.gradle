@@ -52,10 +52,10 @@ tasks.withType(Test) {
     }
 }
 
-test{
-//    systemProperties "chromeoptions.prefs", "intl.accept_languages=en"  //запуск браузера на англ языке
-    useJUnitPlatform()
-}
+//test{ // можно убрать, переопределив выше
+////    systemProperties "chromeoptions.prefs", "intl.accept_languages=en"  //запуск браузера на англ языке
+//    useJUnitPlatform()
+//}
 
 task simple_test_less12(type: Test) {
     useJUnitPlatform{
