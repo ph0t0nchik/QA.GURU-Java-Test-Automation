@@ -10,14 +10,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class RegistrationRemoteTests {
-    @BeforeAll
-    static void configureBrowser(){
-        Configuration.holdBrowserOpen = true;
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-    }
+public class RegistrationRemoteTests extends RemoteTestBase{
 
     @Test
     @Tag("remote")
@@ -27,6 +20,7 @@ public class RegistrationRemoteTests {
         open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
+        $x("//button//p").click(); //закрыть окно, которое мешает началу теста
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
 
         $("#firstName").setValue("Alex");
