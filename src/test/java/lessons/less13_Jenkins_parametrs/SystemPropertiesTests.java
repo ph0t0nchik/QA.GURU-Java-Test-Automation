@@ -32,8 +32,11 @@ public class SystemPropertiesTests {
 
     @Test
     @Tag("property")
-    void systemPropertiesTest5(){
+    void systemProperties5Test(){
         String browser = System.getProperty("browser", "mozilla");
-        System.out.println(browser); //не хочет выводить в терминал через команду в терминале
+        System.out.println(browser); //mozilla
+
+        // gradle property_test -Dbrowser=opera - позволяет устанавливать значения переменной из вне (из дженкинса)
+        //opera
     }
 }
