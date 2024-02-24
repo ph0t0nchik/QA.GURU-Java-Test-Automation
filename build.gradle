@@ -23,7 +23,7 @@ repositories {
     mavenCentral()
 }
 
-//какие бибилиотеки используем
+//какие библиотеки используем
 dependencies {
     testImplementation(
             'org.junit.jupiter:junit-jupiter:5.10.1',
@@ -53,7 +53,13 @@ task simple_test_less12(type: Test) {
 }
 
 task remote_test(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags("remote")
+    }
+}
+
+task property_test(type: Test) {
+    useJUnitPlatform{
+        includeTags("property")
     }
 }
