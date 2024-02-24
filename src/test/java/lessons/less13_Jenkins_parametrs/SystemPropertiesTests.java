@@ -3,6 +3,8 @@ package lessons.less13_Jenkins_parametrs;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static java.lang.String.format;
+
 public class SystemPropertiesTests {
     @Test
     void systemPropertiesTest1(){
@@ -38,5 +40,25 @@ public class SystemPropertiesTests {
 
         // gradle property_test -Dbrowser=opera - позволяет устанавливать значения переменной из вне (из дженкинса)
         //opera
+    }
+
+    @Test
+    @Tag("hello")
+    void systemProperties6Test(){
+        String name = System.getProperty("name", "default student");
+        String message = format("Hello, %s!", name);
+        System.out.println(message);
+
+        // gradle hello_test
+        // Hello, default student!
+
+        // gradle hello_test -Dname=Alex Maximov
+        // Task 'Maximov' not found in root project 'QA.GURU-Java-Test-Automation'
+
+        // gradle hello_test -Dname="Alex Maximov"
+        // gradle hello_test "-Dname=Alex Maximov"
+        // Hello, Alex Maximov!
+
+
     }
 }

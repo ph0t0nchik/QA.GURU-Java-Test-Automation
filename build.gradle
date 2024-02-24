@@ -57,12 +57,6 @@ test{
     useJUnitPlatform()
 }
 
-task property_test(type: Test) {
-    useJUnitPlatform{
-        includeTags("property")
-    }
-}
-
 task simple_test_less12(type: Test) {
     useJUnitPlatform{
         includeTags("simple")
@@ -72,6 +66,18 @@ task simple_test_less12(type: Test) {
 task remote_test(type: Test) {
     useJUnitPlatform {
         includeTags("remote")
+    }
+}
+
+task property_test(type: Test) {
+    useJUnitPlatform{
+        includeTags("property")
+    }
+}
+
+task hello_test(type: Test) {
+    useJUnitPlatform{
+        includeTags("hello")
     }
 }
 
