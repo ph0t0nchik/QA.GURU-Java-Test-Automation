@@ -46,6 +46,6 @@ public class RemoteTestBase {
         Attach.browserConsoleLogs();
         Attach.addVideo();
 
-        closeWebDriver();
+        closeWebDriver(); //чтобы длинные видео не записывались из селеноида
     }
 }
