@@ -3,6 +3,8 @@ package lessons.less12_Jenkins1;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import lessons.helpers.Attach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -34,5 +36,13 @@ public class RemoteTestBase {
     @BeforeEach
     void addListener(){
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    }
+
+    @AfterEach
+    void addAttachments(){
+        Attach.screenshotAs("Last screenshots");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
     }
 }
