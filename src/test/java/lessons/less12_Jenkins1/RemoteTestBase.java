@@ -12,6 +12,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.Map;
 import java.util.Objects;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.impl.Cleanup.of;
 import static java.util.List.of;
 
@@ -44,5 +45,7 @@ public class RemoteTestBase {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
+
+        closeWebDriver();
     }
 }
