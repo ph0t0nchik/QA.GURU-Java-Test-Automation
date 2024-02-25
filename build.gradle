@@ -30,7 +30,9 @@ dependencies {
             'com.github.javafaker:javafaker:1.0.2',
             'com.codeborne:selenide:6.19.1',
             'org.slf4j:slf4j-simple:2.0.7',
-            'io.qameta.allure:allure-selenide:2.19.0'
+            'io.qameta.allure:allure-selenide:2.19.0',
+            'org.aeonbits.owner:owner:1.0.12',
+            'org.assertj:assertj-core:3.25.3'
     )
 
 }
@@ -76,8 +78,14 @@ task property_test(type: Test) {
 }
 
 task hello_test(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags("hello")
+    }
+}
+
+task owner_test(type: Test) {
+    useJUnitPlatform{
+        includeTags("owner")
     }
 }
 
