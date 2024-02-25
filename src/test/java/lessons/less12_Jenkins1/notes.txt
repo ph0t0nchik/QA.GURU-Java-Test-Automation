@@ -31,6 +31,7 @@ Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 Jenkins-remote-Les12
 Jenkins-Les12
 Jenkins-properties-Les13
+Jenkins-fullProject-Les15
 
 Для чего использовать параметры при сборке в Jenkins?
     1. Разные версии браузера
