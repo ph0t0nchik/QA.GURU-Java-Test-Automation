@@ -13,8 +13,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationWithPageObjectsTests extends TestBase {
-    //расширили класс RegistrationWithPageObjectsTests, этот класс наследуется от TestBase. Сначала выполнится код в
-    //а потом в RegistrationWithPageObjectsTests
+    // расширили класс RegistrationWithPageObjectsTests, этот класс наследуется от TestBase. Сначала выполнится код в
+    // а потом в RegistrationWithPageObjectsTests
     RegistrationPageLes7 registrationPage = new RegistrationPageLes7();
     @Test
     void successTest(){
